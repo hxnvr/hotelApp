@@ -1,0 +1,38 @@
+<%= form_with(model: admin_room) do |form| %>
+  <% if admin_room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_room.errors.count, "error") %> prohibited this admin_room from being saved:</h2>
+
+      <ul>
+        <% admin_room.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :attachments %>
+    <%= form.file_field :attachments, multiple: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

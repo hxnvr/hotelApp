@@ -1,0 +1,14 @@
+<%= link_to 'Reviews', reviews_path %>
+<%= link_to 'Rooms', rooms_path %>
+<%= link_to 'Admin tools', admin_path %>
+<h1>Home Page</h1>
+<% @rooms.each do |room| %>
+  <tr>
+    <td> <%= link_to(image_tag(room.attachments[0].thumb.url, alt: 'Image'),
+                     room.attachments[0].url,
+                     target: '_blank') if room.attachments? %>  </td>
+  </tr>
+<% end %>
+
+<h2>This is the description of our hotel</h2>
+

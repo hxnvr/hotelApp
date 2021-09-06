@@ -1,0 +1,5 @@
+class HomepageController < ApplicationController
+  def index
+    @rooms = Room.all
+  end
+end

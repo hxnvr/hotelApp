@@ -1,0 +1,35 @@
+<%= form_with(model: @review) do |form| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% review.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <strong>Author:</strong>
+    <%= @review.author %>
+  </p>
+  <p>
+    <strong>Email:</strong>
+    <%= @review.email %>
+  </p>
+  <p>
+    <strong>Review body:</strong>
+    <%= @review.review_body %>
+  </p>
+
+  <div class="field">
+    <%= form.label :confirmed %>
+    <%= form.check_box :confirmed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
