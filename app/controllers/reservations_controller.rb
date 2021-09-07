@@ -1,11 +1,11 @@
-class ReservationsController < ApplicationController
+# frozen_string_literal: true
 
+class ReservationsController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     @reservation = @room.reservations.create(reservation_params)
     redirect_to rooms_path
   end
-
 
   private
 

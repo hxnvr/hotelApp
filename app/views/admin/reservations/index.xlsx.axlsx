@@ -1,0 +1,25 @@
+# frozen_string_literal: true
+
+wb = xlsx_package.workbook
+wb.add_worksheet(name: 'Reservations') do |sheet|
+  sheet.add_row ['Confirmed reservations']
+  sheet.add_row
+  sheet.add_row ['Room number', 'Name', 'Email', 'Check-in date', 'Check-out date']
+  @reservations.where(confirmed: true).each do |reservation|
+    sheet.add_row [reservation.room.number, reservation.name, reservation.email, reservation.checkin_date,
+                   reservation.checkout_date]
+  end
+  sheet.add_row
+  sheet.add_row
+  sheet.add_row ['Unconfirmed reservations']
+  sheet.add_row
+  sheet.add_row ['Room number', 'Name', 'Email', 'Check-in date', 'Check-out date']
+  @reservations.where(confirmed: nil).each do |reservation|
+    sheet.add_row [reservation.room.number, reservation.name, reservation.email, reservation.checkin_date,
+                   reservation.checkout_date]
+  end
+  sheet.add_row
+  sheet.add_row
+  sheet.add_row ['Unconfirmed reservations', 'Confirmed reservations']
+  sheet.add_row [@reservations.where(confirmed: nil).count, @reservations.where(confirmed: true).count]
+end

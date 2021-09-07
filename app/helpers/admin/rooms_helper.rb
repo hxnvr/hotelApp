@@ -1,2 +1,6 @@
-module Admin::RoomsHelper
+# frozen_string_literal: true
+
+module Admin
+  module RoomsHelper
+  end
 end
