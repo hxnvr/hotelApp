@@ -17,5 +17,4 @@ RSpec.describe HomepageController, type: :controller do
       expect(assigns(:rooms)).to eq([room])
     end
   end
-
 end

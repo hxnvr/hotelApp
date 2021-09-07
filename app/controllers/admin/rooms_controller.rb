@@ -26,8 +26,5 @@ module Admin
     def set_admin_room
       @admin_room = Room.find(params[:id])
     end
-
-
-
   end
 end

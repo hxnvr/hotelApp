@@ -3,6 +3,7 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'db/**/*'
+    - 'spec/controllers/**/*'
     - 'bin/*'
     - 'app/uploaders/*'
     - 'config/environments/*'

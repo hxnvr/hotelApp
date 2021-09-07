@@ -73,7 +73,7 @@ RSpec.describe RoomsController, type: :controller do
       expect(assigns(:room)).to be_a(Room)
     end
     it 'with bad data' do
-      post :create, params: { room: {number: '123', description: 'aaaaaaaaaaaaaaaaaaaaaa' } }
+      post :create, params: { room: { number: '123', description: 'aaaaaaaaaaaaaaaaaaaaaa' } }
       expect(response).not_to be_redirect
     end
   end
